@@ -1,9 +1,13 @@
 package com.spring.tuto.conferencedemo.models;
 
+
+
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity (name = "sessions")
+
 public class Session {
 
     @Id
