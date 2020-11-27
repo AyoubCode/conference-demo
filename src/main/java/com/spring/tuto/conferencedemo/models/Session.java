@@ -3,6 +3,8 @@ package com.spring.tuto.conferencedemo.models;
 
 
 
+import com.spring.tuto.conferencedemo.DTOs.responses.SessionDetailsResponse;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,61 +12,49 @@ import java.util.List;
 
 public class Session {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long session_id;
-    private String session_name;
-    private String session_description;
-    private Integer session_length;
-
-    @ManyToMany
-    @JoinTable(
-            name ="session_speakers",
-            joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name="speaker_id"))
-    private List<Speaker> speakers;
+    private final SessionDetailsResponse sessionDetailsResponse = new SessionDetailsResponse();
 
 
     public Session() {
     }
 
     public Long getSession_id() {
-        return session_id;
+        return sessionDetailsResponse.session_id;
     }
 
     public void setSession_id(Long session_id) {
-        this.session_id = session_id;
+        this.sessionDetailsResponse.session_id = session_id;
     }
 
     public String getSession_name() {
-        return session_name;
+        return sessionDetailsResponse.session_name;
     }
 
     public void setSession_name(String session_name) {
-        this.session_name = session_name;
+        this.sessionDetailsResponse.session_name = session_name;
     }
 
     public String getSession_description() {
-        return session_description;
+        return sessionDetailsResponse.session_description;
     }
 
     public void setSession_description(String session_description) {
-        this.session_description = session_description;
+        this.sessionDetailsResponse.session_description = session_description;
     }
 
     public Integer getSession_length() {
-        return session_length;
+        return sessionDetailsResponse.session_length;
     }
 
     public void setSession_length(Integer session_length) {
-        this.session_length = session_length;
+        this.sessionDetailsResponse.session_length = session_length;
     }
 
     public List<Speaker> getSpeakers() {
-        return speakers;
+        return sessionDetailsResponse.speakers;
     }
 
     public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
+        this.sessionDetailsResponse.speakers = speakers;
     }
 }
