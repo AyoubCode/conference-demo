@@ -3,6 +3,9 @@ package com.spring.tuto.conferencedemo.models;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.spring.tuto.conferencedemo.DTOs.responses.SessionDetailsResponse;
+
 import javax.persistence.*;
 import java.util.List;
 
