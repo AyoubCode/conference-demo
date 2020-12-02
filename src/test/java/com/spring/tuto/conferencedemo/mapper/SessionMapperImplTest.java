@@ -23,27 +23,27 @@ class SessionMapperImplTest {
     @Test
     void toSessionDTO_whenMaps_thenCorrect() {
         Session session = new Session();
-        session.setSession_id(1L);
-        session.setSession_name("first_session");
-        session.setSession_description("sessionDescription");
+        session.setSessionId(1L);
+        session.setSessionName("first_session");
+        session.setSessionDescription("sessionDescription");
         SessionDTO sessionDTO=mapper.toSessionDTO(session);
 
-        assertEquals(session.getSession_id(),sessionDTO.getSessionId());
-        assertEquals(session.getSession_description(),sessionDTO.getSessionDescription());
+        assertEquals(session.getSessionId(),sessionDTO.getSessionId());
+        assertEquals(session.getSessionDescription(),sessionDTO.getSessionDescription());
 
     }
 
     @Test
     void toListSessionDTOs_whenMaps_thenCorrect() {
         Session session = new Session();
-        session.setSession_id(1L);
-        session.setSession_name("first_session");
-        session.setSession_description("sessionDescription");
+        session.setSessionId(1L);
+        session.setSessionName("first_session");
+        session.setSessionDescription("sessionDescription");
 
         Session session2 = new Session();
-        session2.setSession_id(1L);
-        session2.setSession_name("first_session");
-        session2.setSession_description("sessionDescription");
+        session2.setSessionId(1L);
+        session2.setSessionName("first_session");
+        session2.setSessionDescription("sessionDescription");
 
         List<Session> sessionList = new ArrayList<>();
         sessionList.add(session);
@@ -52,8 +52,8 @@ class SessionMapperImplTest {
         List<SessionDTO> sessionsDtoList = mapper.toSessionDTOs(sessionList);
 
 
-        assertEquals(session.getSession_id(),sessionsDtoList.get(0).getSessionId());
-        assertEquals(session2.getSession_id(),sessionsDtoList.get(1).getSessionId());
+        assertEquals(session.getSessionId(),sessionsDtoList.get(0).getSessionId());
+        assertEquals(session2.getSessionId(),sessionsDtoList.get(1).getSessionId());
 
 
 
@@ -69,8 +69,8 @@ class SessionMapperImplTest {
         sessionDTO.setSessionName("dtoName");
 
         Session session = mapper.toSession(sessionDTO);
-        assertEquals(sessionDTO.getSessionId(), session.getSession_id());
-        assertEquals(sessionDTO.getSessionDescription(), session.getSession_description());
+        assertEquals(sessionDTO.getSessionId(), session.getSessionId());
+        assertEquals(sessionDTO.getSessionDescription(), session.getSessionDescription());
 
     }
 }

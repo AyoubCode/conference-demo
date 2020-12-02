@@ -1,6 +1,7 @@
 package com.spring.tuto.conferencedemo.DTOs.responses;
 
 import com.spring.tuto.conferencedemo.DTOs.SessionDTO;
+import com.spring.tuto.conferencedemo.models.Session;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SessionDetailsResponse extends AppResponse{
 
-    public Long session_id;
-    public String session_name;
-    public String session_description;
+    public Long sessionId;
+    public String sessionName;
+    public String sessionDescription;
 
-    public SessionDetailsResponse(Long session_id, String session_name, String session_description) {
-        this.session_id = session_id;
-        this.session_name = session_name;
-        this.session_description = session_description;
+    public SessionDetailsResponse(Long sessionId, String sessionName, String sessionDescription) {
+        this.sessionId = sessionId;
+        this.sessionName = sessionName;
+        this.sessionDescription = sessionDescription;
     }
 
     public SessionDetailsResponse(SessionDTO sessionDTO, String msg) {
@@ -28,6 +29,10 @@ public class SessionDetailsResponse extends AppResponse{
 
     public SessionDetailsResponse(SessionDTO sessionDTO){
         this(sessionDTO,null);
+
+    }
+    public static SessionDetailsResponse build(Session session) {
+       return new SessionDetailsResponse(session.getSessionId(),session.getSessionName(), session.getSessionDescription());
 
     }
 }
