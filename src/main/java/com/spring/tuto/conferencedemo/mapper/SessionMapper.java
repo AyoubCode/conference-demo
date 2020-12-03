@@ -12,12 +12,20 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface SessionMapper {
+
     SessionMapper  MAPPER=Mappers.getMapper(SessionMapper.class);
+
+    //dont need that when we have the same properties name's, in the be
+    // gining it wansnt the case so i was forced to do that
+    /*
     @Mappings({
-            @Mapping(target="sessionId",source = "session.session_id"),
-            @Mapping(target="sessionName",source = "session.session_name"),
-            @Mapping(target="sessionDescription",source = "session.session_description")
+
+            @Mapping(target="sessionId",source = "session.sessionId"),
+            @Mapping(target="sessionName",source = "session.sessionName"),
+            @Mapping(target="sessionDescription",source = "session.sessionDescription")
     })
+    */
+
     SessionDTO toSessionDTO(Session session);
 
 
